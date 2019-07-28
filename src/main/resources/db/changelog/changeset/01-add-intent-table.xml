@@ -17,6 +17,9 @@
             <column name="label" type="varchar(50)">
                 <constraints nullable="false" unique="true"/>
             </column>
+            <column name="mood" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
         <createTable tableName="answer">
@@ -30,6 +33,28 @@
                 <constraints foreignKeyName="fk_answer_intent" references="Intent(id)" nullable="false"/>
             </column>
         </createTable>
+
+        <insert tableName="intent">
+            <column name="label" value="greetings"/>
+            <column name="mood" value="HAPPY"/>
+        </insert>
+
+        <insert tableName="answer">
+            <column name="text" value="bonjour"/>
+            <column name="intent_id" valueComputed="(select id from intent where label = 'greetings')"/>
+        </insert>
+        <insert tableName="answer">
+            <column name="text" value="salut"/>
+            <column name="intent_id" valueComputed="(select id from intent where label = 'greetings')"/>
+        </insert>
+        <insert tableName="answer">
+            <column name="text" value="coucou"/>
+            <column name="intent_id" valueComputed="(select id from intent where label = 'greetings')"/>
+        </insert>
+        <insert tableName="answer">
+            <column name="text" value="hello"/>
+            <column name="intent_id" valueComputed="(select id from intent where label = 'greetings')"/>
+        </insert>
 
     </changeSet>
 

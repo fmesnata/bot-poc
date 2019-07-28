@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Data
 public class BotMessage {
 
-    private LocalDateTime time;
+    private LocalDateTime time = LocalDateTime.now();
 
     private String text;
 
