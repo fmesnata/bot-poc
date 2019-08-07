@@ -1,0 +1,33 @@
+<section fxLayout="column" fxFlexFill fxLayoutAlign="space-between" class="chat-comp">
+
+  <div fxFlex="90 1 auto" id="message-container" #messageContainer>
+    <div *ngFor="let message of messages; let even = even;">
+      <div fxLayout="row" fxLayoutAlign="end center" *ngIf="even" class="message-block">
+        <mat-card fxFlex="70" class="even">
+          <mat-card-content>{{message.text}}</mat-card-content>
+        </mat-card>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start center" *ngIf="!even" class="message-block">
+        <mat-card fxFlex="70" class="odd">
+          <mat-card-content>{{message.text}}</mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-form" fxFlex="1 1 auto">
+      <form #chatForm *ngIf="userMessage">
+        <div fxLayout="row" fxLayoutAlign="space-between baseline" fxLayoutGap="5px">
+            <mat-form-field fxFlex="70 1 auto">
+              <input matInput placeholder="Message" name="text" [(ngModel)]="userMessage.text"/>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" (click)="sendMessage()" [disabled]="waitingResponse">
+              Envoyer
+            </button>
+        </div>
+      </form>
+  </div>
+
+</section>

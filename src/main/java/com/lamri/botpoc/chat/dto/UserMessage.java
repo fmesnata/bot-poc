@@ -12,9 +12,10 @@ public class UserMessage {
     private LocalDateTime time;
 
     @NotBlank
+    @Size(min = 2, max = 20)
+    private String author;
+
+    @NotBlank
     @Size(min = 2, max = 50)
     private String text;
-
-    private String sender;
-
 }
