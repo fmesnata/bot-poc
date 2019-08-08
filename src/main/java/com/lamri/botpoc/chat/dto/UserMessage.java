@@ -16,6 +16,6 @@ public class UserMessage {
     private String author;
 
     @NotBlank
-    @Size(min = 2, max = 50)
+    @Size(min = 1, max = 80)
     private String text;
 }

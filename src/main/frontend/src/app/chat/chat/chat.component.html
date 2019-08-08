@@ -17,13 +17,13 @@
   </div>
 
   <div class="chat-form" fxFlex="1 1 auto">
-      <form #chatForm *ngIf="userMessage">
+      <form #chatForm="ngForm" *ngIf="userMessage" (ngSubmit)="sendMessage()">
         <div fxLayout="row" fxLayoutAlign="space-between baseline" fxLayoutGap="5px">
             <mat-form-field fxFlex="70 1 auto">
-              <input matInput placeholder="Message" name="text" [(ngModel)]="userMessage.text"/>
+              <input matInput placeholder="Message" name="text" [(ngModel)]="userMessage.text"
+                     required maxlength="50">
             </mat-form-field>
-
-            <button mat-flat-button color="primary" (click)="sendMessage()" [disabled]="waitingResponse">
+            <button type="submit" mat-flat-button color="primary" [disabled]="waitingResponse || chatForm.invalid">
               Envoyer
             </button>
         </div>
