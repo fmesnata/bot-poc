@@ -148,7 +148,7 @@
                                 <goals>
                                     <goal>install-node-and-npm</goal>
                                 </goals>
-                                <phase>prepare-package</phase>
+                                <phase>generate-resources</phase>
                             </execution>
 
                             <execution>
@@ -156,7 +156,7 @@
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
-                                <phase>prepare-package</phase>
+                                <phase>generate-resources</phase>
                             </execution>
 
                             <execution>
@@ -164,7 +164,7 @@
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
-                                <phase>prepare-package</phase>
+                                <phase>generate-resources</phase>
                                 <configuration>
                                     <arguments>run build</arguments>
                                 </configuration>
@@ -178,7 +178,7 @@
                         <executions>
                             <execution>
                                 <id>copy-frontend-app</id>
-                                <phase>generate-sources</phase>
+                                <phase>process-resources</phase>
                                 <goals>
                                     <goal>copy-resources</goal>
                                 </goals>
@@ -221,7 +221,7 @@
                                 <goals>
                                     <goal>install-node-and-npm</goal>
                                 </goals>
-                                <phase>prepare-package</phase>
+                                <phase>generate-resources</phase>
                             </execution>
 
                             <execution>
@@ -229,7 +229,7 @@
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
-                                <phase>prepare-package</phase>
+                                <phase>generate-resources</phase>
                             </execution>
 
                             <execution>
@@ -237,7 +237,7 @@
                                 <goals>
                                     <goal>npm</goal>
                                 </goals>
-                                <phase>prepare-package</phase>
+                                <phase>generate-resources</phase>
                                 <configuration>
                                     <arguments>run buildprod</arguments>
                                 </configuration>
@@ -251,7 +251,7 @@
                         <executions>
                             <execution>
                                 <id>copy-frontend-app</id>
-                                <phase>generate-sources</phase>
+                                <phase>process-resources</phase>
                                 <goals>
                                     <goal>copy-resources</goal>
                                 </goals>
