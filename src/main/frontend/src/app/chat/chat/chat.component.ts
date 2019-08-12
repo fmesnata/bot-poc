@@ -2,6 +2,7 @@ import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angul
 import {ChatService} from "../chat.service";
 import {UserMessage} from "./model/user-message";
 import {BotMessage} from "./model/bot-message";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-chat',
@@ -20,7 +21,11 @@ export class ChatComponent implements OnInit, AfterViewChecked {
 
   public waitingResponse: boolean;
 
-  @ViewChild('messageContainer', {static: false}) messageContainer: ElementRef;
+  @ViewChild('messageContainer', {static: false})
+  messageContainer: ElementRef;
+
+  @ViewChild('chatForm', {static: false})
+  chatForm: NgForm;
 
   constructor(private chatService: ChatService) { }
 
@@ -47,9 +52,11 @@ export class ChatComponent implements OnInit, AfterViewChecked {
         this.botMessages.push(response);
         this.messages.push(response);
         this.messages = [...this.messages];
-        this.waitingResponse = false;
       }, (error: any) => {
-        this.waitingResponse = false
+        //
+      }, () => {
+        this.chatForm.resetForm();
+        this.waitingResponse = false;
       });
     this.userMessage = {} as UserMessage;
   }
