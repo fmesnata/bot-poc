@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <liquibase-core.version>3.7.0</liquibase-core.version>
+        <liquibase-core.version>4.8.0</liquibase-core.version>
         <junit-jupiter.version>5.5.1</junit-jupiter.version>
         <assertj.version>3.12.2</assertj.version>
     </properties>
